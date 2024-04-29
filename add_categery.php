@@ -40,7 +40,7 @@
 	<form method="post">
 		<table>
 			<tr>
-				<td>Categery :-</td>
+				<td>Category :-</td>
 				<td><input type="text" name="categery" value="<?php echo @$cat_data['categery']; ?>"></td>
   <!-- "smartphones",
   "laptops",

@@ -62,15 +62,15 @@
 				<td><input type="text" name="description" value="<?php echo @$pro_data['description']; ?>"></td>
 			</tr>
 			<tr>
-				<td>Pries :-</td>
+				<td>Prics :-</td>
 				<td><input type="number" min="1" name="pries" value="<?php echo @$pro_data['pries']; ?>"></td>
 			</tr>
 			<tr>
-				<td>Contity :-</td>
+				<td>Quantity :-</td>
 				<td><input type="number" min="1" name="contity" value="<?php echo @$pro_data['contity']; ?>"></td>
 			</tr>
 			<tr>
-				<td>Categery name :-</td>
+				<td>Category:-</td>
 				<td>
 					<select name="categery" >
 						<option selected disabled >select categery</option>
@@ -78,7 +78,7 @@
 						while ($cat = mysqli_fetch_assoc($cat_res)) 
 						{						
 ?>				
-						<option value="<?php echo $cat['categery']; ?>" <?php if(@$pro_data['cat_name']==@$cat['categery']) { ?> selected <?php } ?>><?php echo $cat['categery']; ?></option>					
+						<option value="<?php echo $cat['id']; ?>" <?php if(@$pro_data['cat_name']==@$cat['id']) { ?> selected <?php } ?>><?php echo $cat['categery']; ?></option>					
 <?php  					
 						}	
 ?>
@@ -88,7 +88,7 @@
 			</tr>
 			<tr>
 				<td>Image :-</td>
-				<td><input type="file" name="image"><?php echo @$pro_data['image']; ?></td>
+				<td><input type="file" name="image" value=""><img style="width: 70px" src="image/product/<?php echo @$pro_data['image']; ?>"> </td>
 			</tr>
 			<tr>
 				<td><input type="submit" name="submit"></td>

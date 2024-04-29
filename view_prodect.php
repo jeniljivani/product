@@ -33,7 +33,7 @@
 	}
 	else
 	{
-		$limit = 3;
+		$limit = 4;
 	}
 
 	$start = ($page - 1) * $limit;
@@ -73,9 +73,29 @@
 <body>
 
 	<form method="get">
-		Data limit = <input type="number" max="<?php echo @$total; ?>" name="limit" value="<?php echo @$limit; ?>"> 
-		Search categery :- <input type="text" name="search" value="<?php echo @$search; ?>">
-		<input type="submit" name="submit" value="search">
+		<table>
+			<tr>
+				<td>Data limit = </td>
+				<td>
+					<select name="limit">
+						<option selected disabled hidden>limit select</option>
+						<option value="1" <?php if($limit==1) { ?> selected <?php } ?>>1</option>
+						<option value="2" <?php if($limit==2) { ?> selected <?php } ?>>2</option>
+						<option value="5" <?php if($limit==5) { ?> selected <?php } ?>>5</option>
+						<option value="10" <?php if($limit==10) { ?> selected <?php } ?>>10</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Search title :- </td>
+				<td><input type="text" name="search" value="<?php echo @$search; ?>"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="submit" value="search"></td>
+			</tr>
+		</table>
+		
+		
 	</form><br>
 	<h3 style="color: red"><?php echo @$msg; ?></h3>
 	<table border="1">
@@ -83,9 +103,9 @@
 			<th>ID</th>
 			<th>Title</th>
 			<th>Description</th>
-			<th>Pries</th>
-			<th>Contity</th>
-			<th>Categery id</th>
+			<th>Price</th>
+			<th>Quantity</th>
+			<th>Category id</th>
 			<th>Image</th>
 			<th>Delete</th>
 			<th>Update</th>

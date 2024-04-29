@@ -1,10 +1,7 @@
 <?php 
 	$con = mysqli_connect("localhost","root","","product");
 
-	if(isset($_POST['submit'])) {
-		// echo "<pre>";
-		// print_r($_POST);
-		// print_r($_FILES);
+	if(isset($_POST['submit'])) {	
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
@@ -14,9 +11,20 @@
 		$path = "image/user_image/".$image;
 		move_uploaded_file($_FILES['image']['tmp_name'], $path);
 
-		$insert = "insert into `login`(`name`,`email`,`password`,`contact`,`address`,`image`)values('$name','$email','$password','$contact','$address','$image')";
-		mysqli_query($con,$insert);
-		header("location:index.php");
+		$select = "select * from `login` where `email`='$email'";
+		$res= mysqli_query($con,$select);
+		$cnt = mysqli_num_rows($res); 
+		// echo $cnt;
+		if($cnt==0){
+			$insert = "insert into `login`(`name`,`email`,`password`,`contact`,`address`,`image`)values('$name','$email','$password','$contact','$address','$image')";
+			mysqli_query($con,$insert);
+			header("location:index.php");
+		}
+		else
+		{
+			$msg = "this email id already store";
+		}
+
 	
 	}
 	
@@ -36,6 +44,7 @@
 </head>
 <body>
 
+	<h3><?php echo @$msg; ?></h3>
 	<form method="post" enctype="multipart/form-data">
 		<table border="1" class="table">
 			<tr>

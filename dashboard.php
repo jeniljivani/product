@@ -10,7 +10,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>bashboard page</title>
+	<title>dashboard page</title>
 	<style type="text/css">
 		.link {
 			text-decoration: none;
@@ -51,10 +51,10 @@
 	</div>
 
 	<div class="top">
-		<a href="add_categery.php" class="link"> Add categery</a>
-		<a href="view_categery.php" class="link"> View categery</a>
-		<a href="add_prodect.php" class="link">Add prodect</a>
-		<a href="view_prodect.php" class="link">View prodect</a>
+		<a href="add_categery.php" class="link"> Add categeoy</a>
+		<a href="view_categery.php" class="link"> View category</a>
+		<a href="add_prodect.php" class="link">Add product</a>
+		<a href="view_prodect.php" class="link">View product</a>
 		<a href="logout.php" class="link">logout</a>
 	</div>
 

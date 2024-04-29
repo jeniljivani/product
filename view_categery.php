@@ -6,7 +6,9 @@
 	if(isset($_GET['id'])) 
 	{
 		$id = $_GET['id'];
+		$update = "update `product` set `cat_name`='No category' where `cat_name`=".$id;
 		$delete = "delete from `categery` where `id`=".$id;
+		mysqli_query($con,$update);
 		$cat_res = mysqli_query($con,$delete);
 	}
 	$user_id = $_SESSION['username']['id'];
@@ -58,9 +60,30 @@
 <body>
 
 	<form method="get">
-		Data limit = <input type="number" max="<?php echo @$total; ?>" name="limit" value="<?php echo @$limit; ?>"> 
-		Search categery :- <input type="text" name="search" value="<?php echo @$search; ?>">
-		<input type="submit" name="submit" value="search">
+		<table>
+			<tr>
+				<td>Data limit = </td>
+				<td>
+					<select name="limit">
+						<option selected disabled hidden>limit select</option>
+						<option value="1" <?php if($limit==1) { ?> selected <?php } ?>>1</option>
+						<option value="2" <?php if($limit==2) { ?> selected <?php } ?>>2</option>
+						<option value="5" <?php if($limit==5) { ?> selected <?php } ?>>5</option>
+						<option value="10" <?php if($limit==10) { ?> selected <?php } ?>>10</option>
+					</select>	
+				</td>
+			</tr>
+			<tr>
+				<td>Search category :-</td>
+				<td><input type="text" name="search" value="<?php echo @$search; ?>"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="submit" value="search"></td>
+			</tr>
+		</table>
+		<!-- <input type="number" max="<?php echo @$total; ?>" name="limit" value="<?php echo @$limit; ?>"> 
+		Search category :- <input type="text" name="search" value="<?php echo @$search; ?>">
+		<input type="submit" name="submit" value="search"> -->
 	</form><br>
 
 <table border="1">
